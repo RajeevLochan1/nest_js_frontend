@@ -1,0 +1,55 @@
+.container {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    transition: background-color 0.5s ease; /* Add transition */
+    padding: 20px; /* Add padding to increase the width of the background color */
+  }
+  
+  .signin {
+    background-color: #f2f2f2; /* Set background color for sign-in */
+  }
+  
+  .signup {
+    background-color: #e6f7ff; /* Set background color for sign-up */
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  button {
+    width: calc(100% - 20px); /* Subtract padding from width */
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    color: #888;
+    cursor: pointer;
+  }
+  
+  p:hover {
+    text-decoration: underline;
+  }
+  

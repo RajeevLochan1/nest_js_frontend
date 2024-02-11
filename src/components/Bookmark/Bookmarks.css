@@ -1,0 +1,10 @@
+.bookmarks-container {
+    text-align: center; /* Center the Bookmarks heading */
+  }
+  
+  .save-button {
+    float: right; /* Align the save button to the right */
+    width: auto; /* Remove fixed width */
+    padding: 5px 10px; /* Adjust padding as needed */
+  }
+  
