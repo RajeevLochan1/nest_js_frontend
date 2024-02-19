@@ -8,6 +8,7 @@ interface User {
   id: number;
   email: string;
   firstName?: string;
+  lastName?: string;
 }
 
 const HomePage: React.FC = () => {
@@ -59,7 +60,12 @@ const HomePage: React.FC = () => {
         <div className="dashboard-content">
           {user && (
             <div>
-              <h3>Welcome: {user.firstName ? user.firstName : user.email}</h3>
+              <h3>
+                Welcome:{" "}
+                {user.firstName && user.lastName
+                  ? `${user.firstName}${" "}${user.lastName}`
+                  : user.email}
+              </h3>
               {/* <p>Email: {user.email}</p> */}
             </div>
           )}

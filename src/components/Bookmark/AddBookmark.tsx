@@ -72,7 +72,7 @@ const AddBookmark = () => {
       setBookmarks([...bookmarks, response.data]);
       navigate("/home");
     } catch (error: any) {
-      toast.warning(error?.response?.data?.message[0]);
+      toast.warning(error?.response?.status === 401 ? error?.response?.data?.message : error?.response?.data?.message[0]);
       console.error("Error adding bookmark:", error);
     }
   };
