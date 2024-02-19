@@ -142,7 +142,7 @@ const Bookmarks: React.FC = () => {
                 }}
               >
                 <Typography className="card-text">
-                  <div className="card-title">{item.title}</div>
+                  <div className="card-title">Title: {item.title}</div>
                 </Typography>
                 <Typography className="card-text">
                   <div className="card-description">Description: {item.description}</div>
@@ -161,7 +161,7 @@ const Bookmarks: React.FC = () => {
                       href={item.link}
                       target="_blank"
                       style={{
-                        textDecoration: "none",
+                        textDecoration: "link",
                         color: "black",
                         maxWidth: "100%",
                         overflow: "hidden",
@@ -169,7 +169,7 @@ const Bookmarks: React.FC = () => {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      {item.link}
+                      {`${" "}${item.link}`}
                     </a>
                   </span>
                 </Typography>
