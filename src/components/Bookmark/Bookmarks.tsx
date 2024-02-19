@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import BookmarkModal from "./BookmarkModal";
-// import "./Bookmarks.css";
+import "./Bookmarks.css";
 import {
   Button,
   Dialog,
@@ -130,31 +129,60 @@ const Bookmarks: React.FC = () => {
       >
         {bookmarks.length > 0 ? (
           <>
-            {bookmarks.map((item) => (
+            {bookmarks.map((item, index) => (
               <Card
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   rowGap: "10px",
-                  backgroundColor: "rgb(255, 255, 255)",
+                  backgroundColor: index % 2 === 0 ? "antiquewhite" : "inherit",
                   border: "1px solid rgba(36, 28, 21, 0.15)",
                   height: "auto",
                   padding: "16px",
-                  // width: '100%',
                 }}
               >
-                <Typography>Title:{item.title}</Typography>
-                <Typography>
-                  {item.description
-                    ? `Description:${item.description}`
-                    : "No description"}
+                <Typography className="card-text">
+                  <div className="card-title">{item.title}</div>
                 </Typography>
-                <Typography>Link:<a href={item.link} target="_blank" style={{textDecoration:"none", color:"black"}}>{item.link}</a></Typography>
-                <Typography>
-                  Created Time:{moment(item.createdAt).format("LLL")}
+                <Typography className="card-text">
+                  <div className="card-description">Description: {item.description}</div>
                 </Typography>
-                <Typography>
-                  Updated Time:{moment(item.updatedAt).format("LLL")}
+                <Typography className="card-text">
+                  <span
+                    style={{
+                      maxWidth: "100%",
+                      display: "inline-block",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    Link:
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        maxWidth: "100%",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {item.link}
+                    </a>
+                  </span>
+                </Typography>
+
+                <Typography className="card-text">
+                  <div className="card-textTime">
+                    Created Time: {moment(item.createdAt).format("LLL")}
+                  </div>
+                </Typography>
+                <Typography className="card-text">
+                  <div className="card-textTime">
+                    Updated Time: {moment(item.updatedAt).format("LLL")}
+                  </div>
                 </Typography>
                 <Grid sx={{ display: "flex", justifyContent: "space-between" }}>
                   <Button
@@ -164,10 +192,7 @@ const Bookmarks: React.FC = () => {
                     <DeleteIcon />
                   </Button>
                   <Link to={`/editbookmark/${item.id}`}>
-                    <Button
-                      style={{ width: "0" }}
-                      // onClick={() => handleEditBookmark(item)}
-                    >
+                    <Button style={{ width: "0" }}>
                       <BorderColorIcon />
                     </Button>
                   </Link>
