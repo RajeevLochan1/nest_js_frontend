@@ -29,7 +29,7 @@ const SignInPage: React.FC = () => {
 
   const handleSignIn = async () => {
     try {
-      const response = await axios.post("https://bookmark-backend-jk3y.onrender.com/auth/signin", {
+      const response = await axios.post("https://nest-js-backend.onrender.com/", {
         firstName,
         lastName,
         email,
